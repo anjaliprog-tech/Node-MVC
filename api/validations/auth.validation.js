@@ -27,21 +27,21 @@ module.exports = {
       'number.base'  : `phone should be a type of 'number'`,
       'number.empty' : `phone cannot be an empty field`,
     }),
-    password: Joi.string().required().empty().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).max(16).messages({
-      "string.base": `password should be a type of 'text'`,
-      "string.empty": `password cannot be an empty field`,
-      "string.min": "password should be of minimum 6 characters",
-      "string.max": "password should be of maximum 16 characters",
-      "string.pattern.base": "password must contains lower case, upper case and between 6 and 16 characters",
-      "any.required": `password is a required field`,
+    password: Joi.string().required().empty().regex(/^.*(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]).*$/).min(8).max(16).messages({
+      'string.base'         : `password should be a type of 'text'`,
+      'string.empty'        : `password cannot be an empty field`,
+      'string.min'          : 'password should be of minimum 8 characters',
+      'string.max'          : 'password should be of maximum 16 characters',
+      'string.pattern.base' : 'password must contain at least one uppercase alphabet, lowercase alphabet, number, and special characters.',
+      'any.required'        : `password is a required field`,
     }),
-    confirm_password: Joi.string().required().empty().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).max(16).messages({
-      "string.base": `confirm_password should be a type of 'text'`,
-      "string.empty": `confirm_password cannot be an empty field`,
-      "string.min": "confirm_password should be of minimum 6 characters",
-      "string.max": "confirm_password should be of maximum 16 characters",
-      "string.pattern.base": "confirm_password must contains lower case, upper case and between 6 and 16 characters",
-      "any.required": `confirm_password is a required field`,
+    confirm_password: Joi.string().required().empty().regex(/^.*(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]).*$/).min(8).max(16).messages({
+      'string.base'         : `confirm_password should be a type of 'text'`,
+      'string.empty'        : `confirm_password cannot be an empty field`,
+      'string.min'          : 'confirm_password should be of minimum 8 characters',
+      'string.max'          : 'confirm_password should be of maximum 16 characters',
+      'string.pattern.base' : 'confirm_password must contain at least one uppercase alphabet, lowercase alphabet, number, and special characters.',
+      'any.required'        : `confirm_password is a required field`,
     })
   })
   // login : Joi.object({
