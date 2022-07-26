@@ -28,8 +28,8 @@ const authenticate = (req, res, next) => {
  * Middeware for Generating a new JWT Token
  */
 const generateToken = (data) => {
-  let token = jwt.sign(data, process.env.SECRET_KEY, {
-    expiresIn: process.env.TOKEN_EXPIRY,
+  let token = jwt.sign(data, process.env.JWT_SECRET_KEY, {
+    expiresIn: process.env.JWT_LOGIN_EXPIRY,
   });
   return token;
 };
